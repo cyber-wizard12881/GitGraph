@@ -1,6 +1,6 @@
 #!\bin\bash
 #Step 0. Get a List of Top 3 committers/authors for the Repository....
-authorsNCommits="$(git shortlog -sne --since=1.years | head -3)"
+authorsNCommits="$(git shortlog -sne HEAD --since=1.years | head -3)"
 
 #Step 1. Iterate through the set of Authors obtained in the step above....
 commit=()
@@ -20,7 +20,7 @@ commit3=()
 
 #Step 2.1 Fill Commits for the 1st author
 if [[ "${#author[@]}" -gt "0" ]];then
-tmpCommit="$(git shortlog -sne --since=1.years --until=11.months --author="${author[0]}")"
+tmpCommit="$(git shortlog -sne HEAD --since=1.years --until=11.months --author="${author[0]}")"
 if [[   -z  $tmpCommit  ]]; then
 commit1="	0	"
 else
@@ -28,7 +28,7 @@ commit1=${tmpCommit%	*}
 fi
 
 for ((i=11; i>=1; i--)); do
-   tmpCommit="$(git shortlog -sne --since=$i.months --until=$((i-1)).months --author="${author[0]}")"
+   tmpCommit="$(git shortlog -sne HEAD --since=$i.months --until=$((i-1)).months --author="${author[0]}")"
    if [[   -z  $tmpCommit  ]]; then
       commit1+="	0	"
    else
@@ -39,7 +39,7 @@ fi
 
 #Step 2.2 Fill Commits for the 2nd author
 if [[ "${#author[@]}" -gt "1" ]];then
-tmpCommit="$(git shortlog -sne --since=1.years --until=11.months --author="${author[1]}")"
+tmpCommit="$(git shortlog -sne HEAD --since=1.years --until=11.months --author="${author[1]}")"
 if [[   -z  $tmpCommit  ]]; then
 commit2="	0	"
 else
@@ -47,7 +47,7 @@ commit2=${tmpCommit%	*}
 fi
 
 for ((i=11; i>=1; i--)); do
-   tmpCommit="$(git shortlog -sne --since=$i.months --until=$((i-1)).months --author="${author[1]}")"
+   tmpCommit="$(git shortlog -sne HEAD --since=$i.months --until=$((i-1)).months --author="${author[1]}")"
    if [[   -z  $tmpCommit  ]]; then
       commit2+="	0	"
    else
@@ -58,7 +58,7 @@ fi
 
 #Step 2.3 Fill Commits for the 3rd author
 if [[ "${#author[@]}" -gt "2" ]];then
-tmpCommit="$(git shortlog -sne --since=1.years --until=11.months --author="${author[2]}")"
+tmpCommit="$(git shortlog -sne HEAD --since=1.years --until=11.months --author="${author[2]}")"
 if [[   -z  $tmpCommit  ]]; then
 commit3="	0	"
 else
@@ -66,7 +66,7 @@ commit3=${tmpCommit%	*}
 fi
 
 for ((i=11; i>=1; i--)); do
-   tmpCommit="$(git shortlog -sne --since=$i.months --until=$((i-1)).months --author="${author[2]}")"
+   tmpCommit="$(git shortlog -sne HEAD --since=$i.months --until=$((i-1)).months --author="${author[2]}")"
    if [[   -z  $tmpCommit  ]]; then
       commit3+="	0	"
    else

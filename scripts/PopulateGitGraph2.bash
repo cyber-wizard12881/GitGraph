@@ -3,11 +3,11 @@
 currentAuthorName="$(git config user.name)"
 currentAuthorEmail="$(git config user.email)"
 authorName="$currentAuthorName <$currentAuthorEmail>"
-currentAuthorNCommits="$(git shortlog -sne --since=1.years --author="$authorName")"
+currentAuthorNCommits="$(git shortlog -sne HEAD --since=1.years --author="$authorName")"
 
 #Step 1. Fill Commits for the current author
 commit1=()
-tmpCommit="$(git shortlog -sne --since=1.years --until=11.months --author="$authorName")"
+tmpCommit="$(git shortlog -sne HEAD --since=1.years --until=11.months --author="$authorName")"
 if [[   -z  $tmpCommit  ]]; then
 commit1="	0	"
 else
@@ -15,7 +15,7 @@ commit1=${tmpCommit%	*}
 fi
 
 for ((i=11; i>=1; i--)); do
-   tmpCommit="$(git shortlog -sne --since=$i.months --until=$((i-1)).months --author="$authorName")"
+   tmpCommit="$(git shortlog -sne HEAD --since=$i.months --until=$((i-1)).months --author="$authorName")"
    if [[   -z  $tmpCommit  ]]; then
       commit1+="	0	"
    else
