@@ -50,6 +50,6 @@ gnuplot -p -e "set terminal dumb;plot for [IDX=0:0] 'graphData2.dat' i IDX u 1:2
 #Step4. Finally, Cleanup the Graph Data File.
 rm -f $graphDataFile
 
-#Step5. Print Closing Message!
+#Step5. Print Closing Message! Wrapping things up!
 echo -e "Excellent Job! You have contributed to the Development of the current Repository."
 echo -e "Keep up the Good Work!"
