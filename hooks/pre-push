@@ -1,0 +1,2 @@
+#!/bin/bash
+sh "scripts/PopulateGitGraph2.bash"
