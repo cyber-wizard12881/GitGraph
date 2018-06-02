@@ -15,9 +15,9 @@ GitGraph_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 HOOK_NAMES="post-commit post-checkout post-merge pre-push"
 
 # relative folder path of the .git / current script
-GIT_DIR=../.git
+GIT_DIR=.git
 # relative folder path of the .git hook / current script
-GIT_HOOK_DIR=../.git/hooks
+GIT_HOOK_DIR=.git/hooks
 # relative folder path of the custom hooks to deploy / current script
 LOCAL_HOOK_DIR=$GitGraph_DIR/hooks
 # relative folder path of the custom scripts to deploy / logic scripts folder
@@ -43,3 +43,5 @@ for hook in $HOOK_NAMES; do
 	  cp -r $SCRIPT_HOOK_DIR $GIT_DIR 
     fi
 done
+
+echo "Completed Installation of project GitGraph hooks !!!"
