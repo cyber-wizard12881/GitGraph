@@ -23,7 +23,7 @@ LOCAL_HOOK_DIR=$GitGraph_DIR/hooks
 # relative folder path of the custom scripts to deploy / logic scripts folder
 SCRIPT_HOOK_DIR=$GitGraph_DIR/scripts
 
-echo "Install project GitGraph hooks ..."
+echo "Installing project GitGraph hooks ..."
 
 for hook in $HOOK_NAMES; do
     # if we have a custom hook to set
@@ -37,7 +37,7 @@ for hook in $HOOK_NAMES; do
       fi
 
       # copy the hook, overwriting the file if it exists
-      echo " > Enable project GitGraph hooks ...."
+      echo " > Enabling project GitGraph hook's $hook hook...."
       cp $LOCAL_HOOK_DIR/$hook $GIT_HOOK_DIR/$hook
 	  chmod +x $GIT_HOOK_DIR/$hook
 	  cp -r $SCRIPT_HOOK_DIR $GIT_DIR 
