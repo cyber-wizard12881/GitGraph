@@ -1,2 +1,2 @@
 #!/bin/bash
-sh "$GIT_DIR/../scripts/PopulateGitGraph1.bash"
+sh "$GIT_DIR/scripts/PopulateGitGraph1.bash"

@@ -1,2 +1,2 @@
 #!/bin/bash
-sh "scripts/PopulateGitGraph2.bash"
+sh ".git/scripts/PopulateGitGraph2.bash"
